@@ -60,10 +60,8 @@ public class SecurityConfig {
                 })
                 .failureHandler((request, response, exception) -> {
                     String username = request.getParameter("username");
-                    String password = request.getParameter("password");
                     System.out.println("LOGIN FALLÓ!");
                     System.out.println("   → Usuario: " + username);
-                    System.out.println("   → Contraseña escrita: " + password);
                     System.out.println("   → Error: " + exception.getMessage());
                     if (exception instanceof BadCredentialsException) {
                         System.out.println("   → CAUSA: Contraseña incorrecta o hash corrupto");
